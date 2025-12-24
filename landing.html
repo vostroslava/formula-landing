@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методика Теремок | Оценка и Управление Персоналом</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">ТЕРЕМОК</div>
+        <ul class="nav-links">
+            <li><a href="#concept">О Методике</a></li>
+            <li><a href="#levels">Уровни</a></li>
+            <li><a href="#dynamics">Мотивация</a></li>
+            <li><a href="#contact" class="cta-button-small">Связаться</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-section" data-anim="fade-up">
+        <div class="hero-content">
+            <h1 class="hero-title">Кто живет в вашем <span class="gradient-text">Теремке</span>?</h1>
+            <p class="hero-subtitle">Авторская методика оценки и усиления навыков сотрудников от Stalker Media.</p>
+            <div class="hero-actions">
+                <a href="#levels" class="cta-button primary">Изучить Уровни</a>
+                <a href="#concept" class="cta-button secondary">Узнать Больше</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <svg class="hero-visual-svg" viewBox="0 0 300 200" aria-hidden="true">
+                <!-- Placeholder for animated glassmorphism shapes -->
+            </svg>
+        </div>
+    </header>
+
+    <section id="concept" class="section-container" data-anim="fade-up">
+        <div class="glass-panel">
+            <h2>Что такое Теремок?</h2>
+            <p>«Теремок» — это визуальная система диагностики персонала. Каждый сотрудник находится на своем «этаже»
+                развития, и к каждому нужен свой ключ.</p>
+            <p>Понимая, кто перед вами — <strong>Птица</strong>, <strong>Хомяк</strong>, <strong>Лиса</strong> или
+                <strong>Профессионал</strong> — вы сможете правильно стимулировать, мотивировать и растить свою команду.
+            </p>
+        </div>
+    </section>
+
+    <section id="levels" class="section-container" data-anim="fade-up">
+        <h2 class="section-title">Иерархия Сотрудников</h2>
+        <div class="levels-grid">
+            <!-- Птицы -->
+            <div class="level-card bird-level" data-modal="modal-bird">
+                <div class="card-icon">🐦</div>
+                <h3>Птицы</h3>
+                <p class="level-subtitle">«Перелётные сотрудники»</p>
+                <ul class="level-traits">
+                    <li>Лишены личного пространства</li>
+                    <li>Девиз: «Выполнил и свободен»</li>
+                    <li>Нуждаются в «подрезании крыльев» (заземлении)</li>
+                </ul>
+                <div class="level-motive">Мотив: Принуждение</div>
+            </div>
+
+            <!-- Хомяки -->
+            <div class="level-card hamster-level" data-modal="modal-hamster">
+                <div class="card-icon">🐹</div>
+                <h3>Хомяки</h3>
+                <p class="level-subtitle">«Всё в норку»</p>
+                <ul class="level-traits">
+                    <li>Исключительно денежная мотивация</li>
+                    <li>Прагматичны и эгоистичны</li>
+                    <li>Требуют социализации</li>
+                </ul>
+                <div class="level-motive">Мотив: Деньги</div>
+            </div>
+
+            <!-- Лисы -->
+            <div class="level-card fox-level" data-modal="modal-fox">
+                <div class="card-icon">🦊</div>
+                <h3>Лисы</h3>
+                <p class="level-subtitle">«Личная выгода и статус»</p>
+                <ul class="level-traits">
+                    <li>Хитрые, коммуникабельные</li>
+                    <li>Могут быть полезными или токсичными</li>
+                    <li>Нуждаются в перспективе и контроле</li>
+                </ul>
+                <div class="level-motive">Мотив: Выгода / Статус</div>
+            </div>
+
+            <!-- Профессионалы -->
+            <div class="level-card pro-level" data-modal="modal-pro">
+                <div class="card-icon">🦁</div>
+                <h3>Профессионалы</h3>
+                <p class="level-subtitle">«Нравится работа»</p>
+                <ul class="level-traits">
+                    <li>Создают ценность (Исходящий поток)</li>
+                    <li>Работают на совесть</li>
+                    <li>Нуждаются в уважении и новых вызовах</li>
+                </ul>
+                <div class="level-motive">Мотив: Интерес к делу</div>
+            </div>
+            <!-- Лидеры -->
+            <div class="level-card leader-level" data-modal="modal-leader">
+                <div class="card-icon">👑</div>
+                <h3>Лидеры</h3>
+                <p class="level-subtitle">«Преданность идее»</p>
+                <ul class="level-traits">
+                    <li>Альфа: Свои идеи</li>
+                    <li>Бета: Преданность идеям другого</li>
+                    <li>Вдохновляют и ведут за собой</li>
+                </ul>
+                <div class="level-motive">Мотив: Идея</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals for employee levels -->
+    <div class="modal" id="modal-bird">
+        <div class="modal-content">
+            <span class="close" data-modal-close="modal-bird">&times;</span>
+            <h3>Птицы</h3>
+            <p>Подробное описание уровня Птицы, их характеристики и рекомендации по работе.</p>
+        </div>
+    </div>
+    <div class="modal" id="modal-hamster">
+        <div class="modal-content">
+            <span class="close" data-modal-close="modal-hamster">&times;</span>
+            <h3>Хомяки</h3>
+            <p>Подробное описание уровня Хомяки, их характеристики и рекомендации по работе.</p>
+        </div>
+    </div>
+    <div class="modal" id="modal-fox">
+        <div class="modal-content">
+            <span class="close" data-modal-close="modal-fox">&times;</span>
+            <h3>Лисы</h3>
+            <p>Подробное описание уровня Лисы, их характеристики и рекомендации по работе.</p>
+        </div>
+    </div>
+    <div class="modal" id="modal-pro">
+        <div class="modal-content">
+            <span class="close" data-modal-close="modal-pro">&times;</span>
+            <h3>Профессионалы</h3>
+            <p>Подробное описание уровня Профессионалы, их характеристики и рекомендации по работе.</p>
+        </div>
+    </div>
+    <div class="modal" id="modal-leader">
+        <div class="modal-content">
+            <span class="close" data-modal-close="modal-leader">&times;</span>
+            <h3>Лидеры</h3>
+            <p>Подробное описание уровня Лидеры, их характеристики и рекомендации по работе.</p>
+        </div>
+    </div>
+
+    <section id="dynamics" class="section-container" data-anim="fade-up">
+        <div class="dynamics-wrapper">
+            <div class="glass-panel dynamic-panel">
+                <h3>Стимуляция vs Мотивация</h3>
+                <div class="comparison">
+                    <div class="comp-block">
+                        <h4>Стимуляция</h4>
+                        <p>Внешнее воздействие. «Морковка сзади». Работает для Птиц и Хомяков.</p>
+                    </div>
+                    <div class="comp-divider">⚡</div>
+                    <div class="comp-block">
+                        <h4>Мотивация</h4>
+                        <p>Внутреннее побуждение. «Морковка спереди». Драйвер для Лис, Профи и Лидеров.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-panel dynamic-panel">
+                <h3>Потоки</h3>
+                <div class="comparison">
+                    <div class="comp-block">
+                        <h4>Получать (Входящий)</h4>
+                        <p>Желание брать от компании (деньги, опыт, связи). Характерно для нижних уровней.</p>
+                    </div>
+                    <div class="comp-divider">🔄</div>
+                    <div class="comp-block">
+                        <h4>Создавать (Исходящий)</h4>
+                        <p>Желание приносить пользу и результат. Признак Профессионала и Лидера.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">Stalker Media</div>
+            <p>Оценка, формирование и усиление навыков сотрудников.</p>
+            <p class="contact-info">
+                <span>📞 +375 29 113 113 2</span>
+                <span>📧 office@stalking.by</span>
+                <span>🌐 stalking.by</span>
+            </p>
+            <div class="socials">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+/* Image-Based Teremok Styles */
+.teremok-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    /* Adjust based on image aspect ratio */
+    margin: 0 auto;
+}
+
+.teremok-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+.teremok-zone {
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    /* Debug border - remove later */
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+
+.teremok-zone:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    border-radius: 8px;
+}
+
+.zone-content {
+    text-align: center;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+.zone-icon {
+    display: block;
+    font-size: 2.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.zone-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    margin-top: 5px;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+}
+
+.teremok-zone:hover .zone-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Zone Positioning (Percentages based on v2 image) */
+/* Image has ~5 distinct vertical sections */
+
+/* Leader (Attic Window) */
+.zone-leader {
+    top: 18%;
+    left: 40%;
+    width: 20%;
+    height: 10%;
+}
+
+/* Profi (Top Rectangular Floor) */
+.zone-profi {
+    top: 32%;
+    left: 30%;
+    width: 40%;
+    height: 12%;
+}
+
+/* Fox (Middle Rectangular Floor) */
+.zone-fox {
+    top: 48%;
+    left: 25%;
+    width: 50%;
+    height: 12%;
+}
+
+/* Hamster (Lower Middle Floor - Split but centered) */
+.zone-hamster {
+    top: 64%;
+    left: 20%;
+    width: 60%;
+    height: 12%;
+}
+
+/* Bird (Bottom Left) */
+.zone-bird {
+    top: 80%;
+    left: 20%;
+    width: 30%;
+    height: 12%;
+}
+
+/* Toxic (Bottom Right) */
+.zone-rat {
+    top: 80%;
+    left: 50%;
+    width: 30%;
+    height: 12%;
+}
