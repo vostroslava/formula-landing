@@ -1,37 +1,93 @@
+/**
+ * Google Apps Script для приёма заявок с лендингов «Теремок» и «Формула»
+ * Поддерживает FormData и JSON форматы
+ * 
+ * Инструкция:
+ * 1. Откройте вашу Google Таблицу
+ * 2. Расширения → Apps Script
+ * 3. Удалите старый код и вставьте этот
+ * 4. Нажмите "Развернуть" → "Управление развертываниями"
+ * 5. Создайте новую версию или обновите существующую
+ * 6. URL развертывания должен быть тот же (если обновляете)
+ */
+
+const SHEET_NAME = 'Лиды';
+
 function doPost(e) {
-    // Логирование входящих параметров (для отладки в Google Apps Script)
-    Logger.log(JSON.stringify(e.parameter));
+    try {
+        let data = {};
 
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getSheets()[0]; // Первая вкладка
+        // Обработка FormData (с сайта через форму)
+        if (e.parameter && Object.keys(e.parameter).length > 0) {
+            data = e.parameter;
+        }
+        // Обработка JSON (если придёт)
+        else if (e.postData && e.postData.contents) {
+            try {
+                data = JSON.parse(e.postData.contents);
+            } catch (jsonErr) {
+                data = {};
+            }
+        }
 
-    // Собираем данные в порядке колонок таблицы
-    var data = [
-        new Date(),                           // A: Дата и время
-        e.parameter.name || '',     // B: Имя
-        e.parameter.company || '',     // C: Компания
-        e.parameter.phone || '',     // D: Телефон
+        const sheet = getOrCreateSheet();
+        const timestamp = new Date();
 
-        // Результаты теста
-        e.parameter.test_main_type || '',     // E: Основной типаж (код)
-        e.parameter.test_main_text || '',     // F: Результат (текст)
-        e.parameter.test_ptica || 0,      // G: Баллы Птица
-        e.parameter.test_homiak || 0,      // H: Баллы Хомяк
-        e.parameter.test_lisa || 0,      // I: Баллы Лиса
-        e.parameter.test_profi || 0,      // J: Баллы Профи
-        e.parameter.test_volk || 0,      // K: Баллы Волк (Новое)
-        e.parameter.test_medved || 0       // L: Баллы Медведь (Новое)
-    ];
+        // Источник: 'Лид Формула' или 'Лид Теремок' (по умолчанию Теремок)
+        const source = data.source || 'Лид Теремок';
 
-    // Добавляем строку
-    sheet.appendRow(data);
+        const row = [
+            timestamp,
+            source,
+            data.name || '',
+            data.phone || '',
+            data.company || '',
+            data.position || '',
+            'Новый'
+        ];
 
-    // Возвращаем простой HTML ответ
-    var html = '<html><body style="font-family:sans-serif;">' +
-        '<h2>Success</h2>' +
-        '</body></html>';
+        sheet.appendRow(row);
 
-    return HtmlService
-        .createHtmlOutput(html)
-        .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+        return ContentService
+            .createTextOutput(JSON.stringify({ success: true, message: 'Заявка принята' }))
+            .setMimeType(ContentService.MimeType.JSON);
+
+    } catch (error) {
+        return ContentService
+            .createTextOutput(JSON.stringify({ success: false, error: error.toString() }))
+            .setMimeType(ContentService.MimeType.JSON);
+    }
+}
+
+function doGet(e) {
+    return ContentService
+        .createTextOutput(JSON.stringify({ status: 'OK', message: 'Скрипт работает' }))
+        .setMimeType(ContentService.MimeType.JSON);
+}
+
+function getOrCreateSheet() {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    let sheet = ss.getSheetByName(SHEET_NAME);
+
+    if (!sheet) {
+        sheet = ss.insertSheet(SHEET_NAME);
+        const headers = ['Дата/время', 'Источник', 'Имя', 'Телефон', 'Компания', 'Должность', 'Статус'];
+        sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+        sheet.getRange(1, 1, 1, headers.length).setBackground('#4a90d9').setFontColor('#ffffff').setFontWeight('bold');
+        sheet.setFrozenRows(1);
+    }
+    return sheet;
+}
+
+function testScript() {
+    const testFormula = {
+        parameter: {
+            name: 'Тест Формула',
+            phone: '+375291234567',
+            company: 'Компания',
+            source: 'Лид Формула'
+        }
+    };
+    const result = doPost(testFormula);
+    Logger.log(result.getContent());
 }

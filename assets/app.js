@@ -1,6 +1,6 @@
 
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwnQR15r9C6AwTp_eYY3RV6uNKu7FaYt0xSra776uZS70rifwMxLKpfDyW0Ls85f5EQ/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwYpyOj61Uprd946DeO4KUdPvbNpwLPpSU8jfhzlKOrm6zofhMECjIwTNXb3pZ2Yus62w/exec";
 
 function isValidScriptUrl(url) {
     return typeof url === "string" &&
@@ -468,6 +468,9 @@ async function sendToGoogleSheet(mainType, types, resultText) {
 
     // Fix: Access global variable set by integration.js if local is null
     const data = window.leadData || leadData;
+
+    // Источник для различения лидов в таблице
+    fd.append('source', 'Лид Формула');
 
     if (data) {
         fd.append('name', data.name || '');
