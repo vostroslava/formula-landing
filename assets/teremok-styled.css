@@ -1,0 +1,1159 @@
+/* Teremok Image Styling - Harmonized with Site Design */
+
+.teremok-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.teremok-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    /* Glassmorphic frame around the image */
+    padding: 1.5rem;
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 20px 60px rgba(139, 92, 246, 0.3),
+        0 0 60px rgba(236, 72, 153, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.teremok-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    /* Multi-layered shadow for depth */
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(139, 92, 246, 0.4),
+        0 0 80px rgba(236, 72, 153, 0.2);
+    /* Subtle glow effect matching site colors */
+    filter: brightness(1.05) contrast(1.05);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.teremok-image:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1) contrast(1.08);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.6),
+        0 0 50px rgba(139, 92, 246, 0.5),
+        0 0 100px rgba(236, 72, 153, 0.3);
+}
+
+/* Accent glow behind the wrapper */
+.teremok-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle at center,
+            rgba(139, 92, 246, 0.15),
+            rgba(236, 72, 153, 0.1),
+            transparent 70%);
+    border-radius: 32px;
+    z-index: -1;
+    opacity: 0.8;
+    animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+/* Optional: Subtle float animation inherited from hero-visual-svg */
+.hero-visual-svg {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .teremok-wrapper {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    .teremok-image {
+        border-radius: 12px;
+    }
+}
+
+/* Program Section Styling */
+.program-card .program-list {
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.program-card .program-list li {
+    margin-bottom: 0.5rem;
+}
+
+.program-result {
+    margin-top: auto;
+    padding: 0.75rem;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border-left: 3px solid #8b5cf6;
+}
+
+.program-break {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffd700;
+}
+
+.program-summary-card {
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.program-summary-card h3 {
+    color: #ffd700;
+    margin-bottom: 1rem;
+}
+
+/* Promo Badge Styling */
+.promo-badge {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 95, 70, 0.2));
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.promo-badge-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #34d399;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.promo-badge-text {
+    font-size: 1rem;
+    color: #e2e8f0;
+    line-height: 1.4;
+}
+
+.promo-badge-text strong {
+    color: #fff;
+    font-size: 1.1em;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .promo-badge {
+        padding: 0.75rem;
+    }
+}
+
+
+/* Takeaways Block Styling */
+.takeaways-block {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.takeaways-block h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* Telegram Field Toggle */
+#telegram-field-group {
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accordion FAQ Styling (Matched to Testimonials) */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: background 0.3s;
+}
+
+.faq-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.faq-header {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-primary);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.faq-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-right: 1rem;
+    color: #ffd700;
+    /* Keeping the gold color from previous edit or matching theme? User wanted match. Theme uses white usually. I'll use a variable or white. */
+    color: var(--text-primary);
+    /* Matching testimonials */
+}
+
+/* Optional: if user wants the question highlighted, let's keep it clean white/primary like screenshots */
+
+.faq-toggle-icon {
+    font-size: 2rem;
+    color: var(--accent-primary);
+    font-weight: 300;
+    transition: transform 0.3s;
+    line-height: 1;
+}
+
+.faq-item.open .faq-toggle-icon {
+    transform: rotate(45deg);
+}
+
+.faq-body {
+    padding: 0 1.5rem 1.5rem;
+    display: none;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--glass-border);
+    padding-top: 1.5rem;
+    line-height: 1.6;
+}
+
+.faq-item.open .faq-body {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Form Status Message */
+.form-status {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: center;
+    min-height: 1.4em;
+    /* Reserve space */
+    color: var(--text-secondary);
+}
+
+.form-status.error {
+    color: #ef4444;
+}
+
+.form-status.success {
+    color: #22c55e;
+}
+
+/* --- Hero Offer (Mini-Card) --- */
+.hero-offer {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    padding: 0.8rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-offer-badge {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+.hero-offer-badge.accent {
+    background: rgba(var(--accent-primary-rgb), 0.2);
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+/* --- Trust Section --- */
+.trust-section {
+    padding-bottom: 2rem;
+}
+
+.trust-bullests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.trust-icon {
+    color: var(--accent-primary);
+    font-size: 1.5rem;
+}
+
+/* --- Takeaways Section --- */
+.takeaways-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.takeaway-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.takeaway-check {
+    color: var(--accent-primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* --- Not Fit Section --- */
+.notfit-container {
+    background: rgba(255, 50, 50, 0.05);
+    border: 1px solid rgba(255, 50, 50, 0.2);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+}
+
+.notfit-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+}
+
+.notfit-item {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.notfit-item::before {
+    content: "×";
+    position: absolute;
+    left: 0;
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* --- Program Fixes --- */
+.program-block-result {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--glass-border);
+    font-size: 0.9em;
+    color: var(--accent-primary);
+}
+
+.program-timing-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+}
+
+/* --- Success/Next Steps --- */
+.success-next-steps {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.success-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-primary);
+}
+
+.success-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+/* --- Mobile Sticky CTA --- */
+.mobile-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #1e293b;
+    /* Dark bg to match theme */
+    border-top: 1px solid var(--glass-border);
+    padding: 1rem;
+    display: none;
+    /* Desktop default */
+    z-index: 9999;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.sticky-info {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.sticky-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .mobile-sticky-cta {
+        display: flex;
+    }
+
+    body {
+        padding-bottom: 80px !important;
+    }
+}
+
+/* --- Program Timeline (Redesign) --- */
+.program-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Vertical Line */
+.program-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--accent-primary);
+    opacity: 0.3;
+}
+
+.program-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.program-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Time Bubble */
+.program-time {
+    position: absolute;
+    left: -2rem;
+    /* Align perfectly with line (line is at 0 relative to container, but bubble needs to center on it) */
+    /* Actually, container has padding-left 2rem. So line is valid at left:0 relative to container? 
+       No, line needs to be inside or outside? 
+       Let's put line at left: 0 of container. Container has padding-left: 3rem.
+    */
+    top: 0;
+    background: var(--accent-primary);
+    color: #fff;
+    font-weight: bold;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px rgba(var(--accent-primary-rgb), 0.4);
+    z-index: 2;
+    transform: translateX(-50%);
+    /* Center on the line */
+    left: 0;
+    /* Line position */
+}
+
+/* Reset previous logic if needed */
+
+.program-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    margin-left: 1.5rem;
+    /* Space from line */
+    transition: transform 0.3s ease, background 0.3s;
+}
+
+.program-item:hover .program-content {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-2px);
+}
+
+.program-content h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.program-content ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.program-content li {
+    margin-bottom: 0.4rem;
+}
+
+@media (max-width: 600px) {
+    .program-timeline {
+        padding-left: 1.5rem;
+    }
+
+    .program-timeline::before {
+        left: 0.75rem;
+    }
+
+    .program-time {
+        position: relative;
+        left: 0;
+        transform: none;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        margin-left: 1.5rem;
+    }
+
+    .program-content {
+        margin-left: 0;
+    }
+}
+
+/* --- Hero Offer & Clean Styles (New) --- */
+:root {
+    --text-muted: rgba(255, 255, 255, 0.7);
+}
+
+.hero-offer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0 1.25rem;
+}
+
+.offer-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.offer-chip-strong {
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.offer-chip-accent {
+    color: var(--text-primary);
+    border-color: rgba(255, 215, 0, 0.35);
+    background: rgba(255, 215, 0, 0.10);
+}
+
+.hero-secondary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+}
+
+.hero-test-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-primary);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.hero-test-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .offer-chip {
+        font-size: 0.88rem;
+        white-space: normal;
+    }
+
+    .hero-offer {
+        margin: 0.9rem 0 1.1rem;
+    }
+}
+
+/* --- HERO OFFER (Premium Card) --- */
+.hero-offer-card {
+    position: relative;
+    margin: 1rem 0 1.25rem;
+    padding: 1rem 1.05rem 0.95rem;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    overflow: hidden;
+    max-width: 600px;
+    /* Optional constraint */
+}
+
+.hero-offer-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.55), rgba(255, 255, 255, 0.12), rgba(255, 215, 0, 0.18));
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.hero-offer-card::after {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: -25%;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.22), rgba(255, 215, 0, 0) 60%);
+    pointer-events: none;
+}
+
+.hero-offer-top {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.hero-offer-kicker {
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.hero-offer-meta {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-offer-sep {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.hero-offer-main {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0.9rem;
+    margin-top: 0.75rem;
+}
+
+.hero-offer-price {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    align-content: start;
+    gap: 0.1rem 0.5rem;
+}
+
+.hero-offer-price-value {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    font-size: 2.4rem;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: rgba(255, 255, 255, 0.96);
+}
+
+.hero-offer-price-currency {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    align-self: end;
+    padding-bottom: 0.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-offer-price-note {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.hero-offer-promo {
+    flex: 0 0 220px;
+    border-radius: 14px;
+    padding: 0.7rem 0.75rem;
+    background: rgba(255, 215, 0, 0.10);
+    border: 1px solid rgba(255, 215, 0, 0.30);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-offer-promo-title {
+    font-size: 0.8rem;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 0.1rem;
+}
+
+.hero-offer-promo-value {
+    margin-top: 0.15rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.hero-offer-promo-deadline {
+    margin-top: 0.15rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 860px) {
+    .hero-offer-main {
+        flex-direction: column;
+    }
+
+    .hero-offer-promo {
+        flex: 1 1 auto;
+    }
+
+    .hero-offer-card {
+        padding: 0.95rem 0.95rem 0.9rem;
+    }
+
+    .hero-offer-price-value {
+        font-size: 2.1rem;
+    }
+}
+
+/* --- Header Refinements --- */
+.logo-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1;
+    /* Tighten line height */
+    gap: 2px;
+    /* Smallest gap */
+}
+
+.logo-text-secondary {
+    margin-top: -2px;
+    /* Pull closer if needed */
+}
+
+/* Force single line links */
+.nav-links a {
+    white-space: nowrap;
+}
+
+/* --- Hero Vertical Optimization --- */
+#top.section {
+    padding-top: 0.5rem;
+    /* Aggressively reduced */
+    padding-bottom: 2rem;
+}
+
+.hero {
+    min-height: auto;
+    gap: 1.5rem;
+    align-items: center;
+    /* Center image vertically */
+    padding-top: 0;
+    /* Remove inner padding */
+}
+
+.hero-brand-badge {
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    margin-bottom: 1rem;
+}
+
+.hero-actions {
+    margin-top: 1rem;
+}
+
+/* --- Circular Logo --- */
+.logo-mark {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+/* --- HERO OFFER SLAB --- */
+.hero-offer-slab {
+    margin: 1rem 0 1.25rem;
+    padding: 1.05rem 1.05rem 0.95rem;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-offer-slab::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.55), rgba(255, 255, 255, 0.12), rgba(255, 215, 0, 0.18));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.hero-offer-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 0.85rem;
+}
+
+.hero-offer-when {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.72);
+    letter-spacing: 0.2px;
+}
+
+.hero-offer-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: -0.2px;
+}
+
+.hero-offer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+}
+
+.hero-price-card {
+    border-radius: 16px;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    min-height: 108px;
+}
+
+.hero-price-card--promo {
+    border-color: rgba(255, 215, 0, 0.30);
+    background: rgba(255, 215, 0, 0.10);
+}
+
+.hero-price-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    margin-bottom: 0.55rem;
+}
+
+.hero-price-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.28rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.hero-price-tag--muted {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.hero-price-old {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.strike {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: rgba(255, 255, 255, 0.55);
+}
+
+.hero-price-value {
+    font-size: 2.05rem;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -0.6px;
+    color: rgba(255, 255, 255, 0.96);
+}
+
+.hero-price-currency {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.hero-price-note {
+    margin-top: 0.3rem;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.hero-offer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+    margin-top: 0.9rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.hero-offer-cta {
+    white-space: nowrap;
+}
+
+.hero-offer-footnote {
+    font-size: 0.86rem;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+@media (max-width: 860px) {
+    .hero-offer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-offer-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-offer-cta {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-offer-footnote {
+        text-align: center;
+    }
+}
+
+/* --- Hero Slab Compact --- */
+.hero-offer-slab {
+    margin: 0.5rem 0 1rem;
+    /* Reduced top/bottom margin */
+    padding: 0.8rem 1rem 0.8rem;
+    /* Reduced padding */
+}
+
+.hero-offer-head {
+    margin-bottom: 0.6rem;
+    /* Tighter header */
+}
+
+.hero-price-card {
+    min-height: auto;
+    /* Remove fixed height constraint */
+    padding: 0.7rem 0.8rem;
+    /* Tighter inner padding */
+}
+
+.hero-price-value {
+    font-size: 1.8rem;
+    /* Slightly smaller price */
+    margin-top: 0.2rem;
+    margin-bottom: 0.1rem;
+}
+
+.hero-price-note {
+    font-size: 0.85rem;
+    margin-top: 0.1rem;
+}
+
+.hero-price-top {
+    margin-bottom: 0.3rem;
+    /* Tighter top row in card */
+}
+
+.hero-offer-actions {
+    margin-top: 0.7rem;
+    padding-top: 0.7rem;
+    gap: 0.7rem;
+}
+
+/* --- Hero Image Size Adjustment --- */
+.teremok-wrapper {
+    max-width: 400px;
+    /* Reduced by 20% from 500px */
+}
