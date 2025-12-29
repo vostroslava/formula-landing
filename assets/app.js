@@ -132,8 +132,6 @@ function openTestModal() {
     if (telegramBlock) telegramBlock.style.display = 'none';
 
     renderQuestion();
-
-    renderQuestion();
 }
 
 // Закрыть модал теста
@@ -699,38 +697,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Инициализируем отсчёт до мероприятия
-    initEventCountdown();
-
-
-
-    // Interactive Cards Modal Logic
-    // Interactive Cards Modal Logic
-    document.querySelectorAll('.level-card').forEach(card => {
-        // Accessibility Attributes
-        const title = card.querySelector('h3') ? card.querySelector('h3').textContent : 'Level';
-        card.setAttribute('role', 'button');
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('aria-label', 'Открыть описание: ' + title);
-
-        // Click handler
-        card.addEventListener('click', function (e) {
-            const modalId = this.getAttribute('data-modal');
-            if (modalId) {
-                openModal(modalId);
-            }
-        });
-
-        // Keyboard handler for accessibility
-        card.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                card.click(); // Reuse click handler
-            }
-        });
-    });
-
-    // Mobile menu close on link click (Migrated from script.js)
+    // Mobile menu close on link click
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -738,89 +705,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
-                // 1. Close menu first using app.js function
                 closeMobileMenu();
-
-                // 2. Wait and scroll (smooth)
                 setTimeout(() => {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }, 400);
             }
         });
     });
-
-    // Hover Tilt Effect for Level Cards (Migrated from script.js)
-    const cards = document.querySelectorAll('.level-card');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            // We need to check if the CSS actually uses these variables, 
-            // but setting them is safe and restores the intended effect.
-            card.style.setProperty('--x', `${x}px`);
-            card.style.setProperty('--y', `${y}px`);
-        });
-    });
 });
 
-// Generic Modal Functions
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.add('open');
-        adjustBodyScroll();
-    }
-}
-
-// Card Nudge Animation Logic
-function initTypeCardsNudge() {
-    const section = document.querySelector('#about');
-    // Using .level-card as the real selector
-    const cards = Array.from(document.querySelectorAll('.level-card'));
-
-    if (!section || cards.length === 0) return;
-
-    const stop = () => cards.forEach(c => c.classList.remove('is-nudged'));
-
-    // Stop animation after first click on any card
-    cards.forEach(c => c.addEventListener('click', stop, {
-        once: true
-    }));
-
-    // Start animation only when section is visible
-    const io = new IntersectionObserver((entries) => {
-        const entry = entries[0];
-        if (!entry.isIntersecting) return;
-
-        // Animate first 3 cards to avoid visual noise
-        cards.slice(0, 3).forEach(c => c.classList.add('is-nudged'));
-
-        // Stop after 6 seconds
-        setTimeout(stop, 6000);
-        io.disconnect();
-    }, {
-        threshold: 0.35
-    });
-
-    io.observe(section);
-}
-
-// Initialize Nudge
-document.addEventListener('DOMContentLoaded', () => {
-    initTypeCardsNudge();
-});
-
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.remove('open');
-        adjustBodyScroll();
-    }
-}
 
 // ===== CONTACT FORM HANDLING (Migrated from integration.js) =====
 
